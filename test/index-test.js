@@ -1,7 +1,7 @@
 /*global describe, it */
 
 describe('Objects', function() {
-  describe('updateObjectWithKeyAndValue(object, key, value)', function() {
+  describe('updateObjectWithKeyAndValue(object, key, value)'), function() {
     it('returns an object with the orignal key value pairs and the new key value pair', function() {
       var obj = { prop: 1 }
 
@@ -18,7 +18,7 @@ describe('Objects', function() {
 
       expect(obj['prop2']).toBe(undefined)
     })
-    
+
     it('returns an object with an updated key value pair', function() {
       var obj = { prop: 'old value' }
 
@@ -77,3 +77,19 @@ describe('Objects', function() {
   })
 
 })
+var recipes = new Object();
+
+function updateObjectWithKeyAndValue(object, key, value){
+  return Object.assign({},object,{[key]: value})
+}
+
+function destructivelyUpdateObjectWithKeyAndValue(object, key, value){
+ object[key] = value
+return object
+}
+
+function deleteFromObjectByKey(object, key){
+  var newObj =  Object.assign({},object)
+  delete newObj[key]
+  return newObj
+
